@@ -103,7 +103,9 @@ struct DelegateFlags {
 - (void)selectItemAtIndex:(NSInteger)index {
     [self selectCellAtIndex:index selectedType:JXCategoryCellSelectedTypeCode];
 }
-
+- (void)selectItemAtIndex:(NSInteger)index noScroll:(BOOL)noScroll {
+     [self selectCellAtIndex:index selectedType:JXCategoryCellSelectedTypeClick];
+}
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -149,6 +151,7 @@ struct DelegateFlags {
 
     self.contentScrollView.scrollsToTop = NO;
     [self.contentScrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+    //self.contentScrollView.delegate = self;
 }
 
 - (void)setListContainer:(id<JXCategoryViewListContainer>)listContainer {
@@ -218,6 +221,16 @@ struct DelegateFlags {
             [self contentOffsetOfContentScrollViewDidChanged:contentOffset];
         }
         self.lastContentViewContentOffset = contentOffset;
+    }
+}
+
+
+#pragma mark - scrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    if (self.contentScrollView == scrollView) {
+        if (self.delegateFlags.scrollingFromLeftIndexToRightIndexFlag) {
+            [self.delegate categoryView:self scrollDidEndDecelerating:scrollView];
+        }
     }
 }
 

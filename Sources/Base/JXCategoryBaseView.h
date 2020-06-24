@@ -70,6 +70,8 @@
  */
 - (void)categoryView:(JXCategoryBaseView *)categoryView scrollingFromLeftIndex:(NSInteger)leftIndex toRightIndex:(NSInteger)rightIndex ratio:(CGFloat)ratio;
 
+- (void)categoryView:(JXCategoryBaseView *)categoryView scrollDidEndDecelerating:(UIScrollView *)scrollView;
+
 @end
 
 @interface JXCategoryBaseView : UIView
@@ -126,7 +128,7 @@
  @param index 目标index
  */
 - (void)selectItemAtIndex:(NSInteger)index;
-
+- (void)selectItemAtIndex:(NSInteger)index noScroll:(BOOL)noScroll;
 /**
  初始化的时候无需调用。比如页面初始化之后，根据网络接口异步回调回来数据，重新配置categoryView，需要调用该方法进行刷新。
  */
