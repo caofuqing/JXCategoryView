@@ -16,6 +16,7 @@
  需要与titles的count对应
  */
 @property (nonatomic, strong) NSArray <NSNumber *> *counts;
+@property (nonatomic, strong) NSArray <UIColor *> *numberTitleColorsArray;
 
 /**
  内部默认不会格式化数字，直接转成字符串显示。比如业务需要数字超过999显示999+，可以通过该block实现。

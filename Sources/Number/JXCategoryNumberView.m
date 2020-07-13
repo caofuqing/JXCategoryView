@@ -50,7 +50,8 @@
         myCellModel.numberString = [NSString stringWithFormat:@"%ld", (long)myCellModel.count];
     }
     myCellModel.numberBackgroundColor = self.numberBackgroundColor;
-    myCellModel.numberTitleColor = self.numberTitleColor;
+//    myCellModel.numberTitleColor = self.numberTitleColor;
+    myCellModel.numberTitleColor = self.numberTitleColorsArray[index];
     myCellModel.numberLabelHeight = self.numberLabelHeight;
     myCellModel.numberLabelOffset = self.numberLabelOffset;
     myCellModel.numberLabelWidthIncrement = self.numberLabelWidthIncrement;
