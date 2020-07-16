@@ -42,7 +42,7 @@
     [super reloadData:cellModel];
 
     JXCategoryNumberCellModel *myCellModel = (JXCategoryNumberCellModel *)cellModel;
-    self.numberLabel.hidden = myCellModel.count == 0;
+//    self.numberLabel.hidden = myCellModel.count == 0;
     self.numberLabel.backgroundColor = myCellModel.numberBackgroundColor;
     self.numberLabel.font = myCellModel.numberLabelFont;
     self.numberLabel.textColor = myCellModel.numberTitleColor;

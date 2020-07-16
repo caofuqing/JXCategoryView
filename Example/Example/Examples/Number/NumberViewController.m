@@ -17,14 +17,14 @@
 @implementation NumberViewController
 
 - (void)viewDidLoad {
-    self.titles = @[@"螃蟹", @"麻辣小龙虾", @"苹果", @"营养胡萝卜", @"葡萄", @"美味西瓜", @"香蕉", @"香甜菠萝", @"鸡肉", @"鱼", @"海星"];
+    self.titles = @[@"螃蟹", @"麻辣小龙虾", @"苹果"];
 
     [super viewDidLoad];
 
     UIBarButtonItem *reloadItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(reloadNumbers)];
     self.navigationItem.rightBarButtonItem = reloadItem;
 
-    _numbers = @[@0, @111111, @5, @10, @2, @100, @66, @999, @33, @33, @11];
+    _numbers = @[@0, @111111, @5];
 
     self.myCategoryView.titles = self.titles;
     self.myCategoryView.counts = self.numbers;
@@ -49,7 +49,7 @@
 }
 
 - (void)reloadNumbers {
-    self.numbers = @[@33, @33, @33, @33, @33, @33, @33, @33, @33, @33, @33];
+    self.numbers = @[@33, @33, @33];
     self.myCategoryView.counts = self.numbers;
     
     int x = arc4random()%15;
